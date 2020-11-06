@@ -9,6 +9,8 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import java.lang.reflect.InvocationTargetException;
+
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,21 +25,21 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		this.INSTANCE = this;
 		this.prM = ProtocolLibrary.getProtocolManager();
-		this.prM.addPacketListener(new PacketAdapter(this.INSTANCE, new PacketType[]{Server.KEEP_ALIVE}) {
+		this.prM.addPacketListener(new PacketAdapter(this.INSTANCE, Server.KEEP_ALIVE) {
 			public void onPacketSending(PacketEvent e) {
 				e.setCancelled(true);
 				PacketContainer pac = Main.this.prM.createPacket(Client.KEEP_ALIVE);
-				pac.getLongs().write(0, (Long)e.getPacket().getLongs().read(0));
-				Main.this.getServer().getScheduler().scheduleSyncDelayedTask(Main.this.INSTANCE, new Runnable(e, pac) {
-					Player p;
-					PacketContainer packet;
+				pac.getLongs().write(0, e.getPacket().getLongs().read(0));
+				int i = Main.this.getServer().getScheduler().scheduleSyncDelayedTask(Main.this.INSTANCE, new Runnable() {
 
-					this.p = var2.getPlayer();
-					this.packet = var3;
+					Player p = e.getPlayer();
+					PacketContainer packet = pac;
 
 					public void run() {
-						try { Main.this.prM.recieveClientPacket(this.p, this.packet); }
-						catch (InvocationTargetException | IllegalAccessException var2) {}
+						try {
+							Main.this.prM.recieveClientPacket(this.p, this.packet);
+						} catch (InvocationTargetException | IllegalAccessException var2) {
+						}
 					}
 				}, 2L);
 			}

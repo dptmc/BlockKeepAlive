@@ -1,0 +1,7 @@
+name: BlockKeepAlive
+version: 1.0.0-SNAPSHOT-@apiversion@
+description: An empty plugin for Spigot with Maven
+authors: [ DartPower, UnknownContributorName ]
+website: https://github.com/dptmc/BlockKeepAlive
+main: io.dpteam.BlockKeepAlive.Main
+depend: [ProtocolLib]
