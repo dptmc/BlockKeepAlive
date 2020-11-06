@@ -44,11 +44,11 @@ public class Main extends JavaPlugin {
 				}, 2L);
 			}
 		});
-		System.out.println("Enabled BlockKeepAlive");
+		System.out.println("BlockKeepAlive Enabled");
 	}
 
 	@Override
 	public void onDisable() {
-		System.out.println("Disabled BlockKeepAlive");
+		System.out.println("BlockKeepAlive Disabled");
 	}
 }
