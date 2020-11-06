@@ -32,17 +32,12 @@ public class Main extends JavaPlugin {
 					Player p;
 					PacketContainer packet;
 
-					{
-						this.p = var2.getPlayer();
-						this.packet = var3;
-					}
+					this.p = var2.getPlayer();
+					this.packet = var3;
 
 					public void run() {
-						try {
-							Main.this.prM.recieveClientPacket(this.p, this.packet);
-						} catch (InvocationTargetException | IllegalAccessException var2) {
-						}
-
+						try { Main.this.prM.recieveClientPacket(this.p, this.packet); }
+						catch (InvocationTargetException | IllegalAccessException var2) {}
 					}
 				}, 2L);
 			}
