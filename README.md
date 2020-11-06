@@ -1,4 +1,4 @@
 # DPT-PluginRepoTemplate
-DPT Specific Plugins for Bukkit-based plugin template
+Another epic perfomance booster for Bukkit-based servers
 
-![Build](https://github.com/dptmc/DPT-PluginRepoTemplate/workflows/Build/badge.svg)
+![Build](https://github.com/dptmc/BlockKeepAlive/workflows/Build/badge.svg)
