@@ -36,11 +36,8 @@ public class Main extends JavaPlugin {
 					PacketContainer packet = pac;
 
 					public void run() {
-						try {
-							Main.this.prM.recieveClientPacket(this.p, this.packet, true);
-						} catch (InvocationTargetException | IllegalAccessException var2) {
-						}
-					}
+                        Main.this.prM.receiveClientPacket(this.p, this.packet, true);
+                    }
 				}, 2L);
 			}
 		});
