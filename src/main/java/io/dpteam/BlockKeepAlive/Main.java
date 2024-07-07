@@ -1,8 +1,8 @@
 package io.dpteam.BlockKeepAlive;
 
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.PacketType.Play.Client;
 import com.comphenix.protocol.PacketType.Play.Server;
 import com.comphenix.protocol.events.PacketAdapter;
@@ -37,7 +37,7 @@ public class Main extends JavaPlugin {
 
 					public void run() {
 						try {
-							Main.this.prM.recieveClientPacket(this.p, this.packet);
+							Main.this.prM.recieveClientPacket(this.p, this.packet, true);
 						} catch (InvocationTargetException | IllegalAccessException var2) {
 						}
 					}
